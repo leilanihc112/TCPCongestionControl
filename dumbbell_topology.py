@@ -113,8 +113,7 @@ def run_tcp_tests_cwnd(algorithm, delay):
 	net.start()
 	
 	print("Dumping host connections")
-	dumpNodeConnections(net.hosts)
-	
+	dumpNodeConnections(net.hosts)	
 	#CLI(net)
 	
 	h1, h2, h3, h4 = net.getNodeByName('h1', 'h2', 'h3', 'h4')
@@ -257,7 +256,6 @@ def plot_iperf(algorithm, delay, cwnd, timeout):
 		print("Creating the plots for IPERF for the TCP fairness graph")
 		plot1 = subprocess.Popen(["gnuplot"], stdin=subprocess.PIPE)
 		plot1.stdin.write("plot \"results/{0}_h3_{1}_fair_new\" title \"TCP Flow 1\" with linespoints, \"results/{0}_h4_{1}_fair_new\" title \"TCP Flow 2\" with linespoints\n".format(algorithm, delay))
-
 		plot1.stdin.write("set xrange[1:{0}]\n".format(timeout))
 		plot1.stdin.write("set xtics 1,{0},{1}\n".format(int(timeout/10),timeout))
 		plot1.stdin.write("set title \"Change in Throughput (Mbps) vs Time (1s units) for two TCP flows (rtt = {0} ms) using {1}\"\n".format(delay*2, algorithm.upper()))

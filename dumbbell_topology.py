@@ -133,13 +133,13 @@ def run_tcp_tests_cwnd(algorithm, delay):
 	# run iperf
 	popens = dict()
 	print('Starting iperf server h3')
-	popens[h3] = h3.popen('iperf3 -s -p 5566 -1 &', shell=True)
+	popens[h3] = h3.popen('iperf3 -s -p 5566 -1', shell=True)
 	print('Starting iperf server h4')
-	popens[h4] = h4.popen('iperf3 -s -p 5566 -1 &', shell=True)
+	popens[h4] = h4.popen('iperf3 -s -p 5566 -1', shell=True)
 	time.sleep(5)
 	
 	print('Starting iperf client h1')
-	popens[h1] = h1.popen('nohup iperf3 -c {0} -p 5566 -t {1} -C {2} -i 1 > results/cwnd_{3}_{4}_{5} &'.format(h3.IP(), h1_timeout, algorithm, algorithm, h1, delay), shell=True)
+	popens[h1] = h1.popen('nohup iperf3 -c {0} -p 5566 -t {1} -C {2} -i 1 > results/cwnd_{3}_{4}_{5}'.format(h3.IP(), h1_timeout, algorithm, algorithm, h1, delay), shell=True)
 	
         print('{0} delay for client h2'.format(stagger_time))
 	for i in range(stagger_time,0,-1):
@@ -187,9 +187,9 @@ def run_tcp_tests_fairness(algorithm, delay):
 	# run iperf
 	popens = dict()
 	print('Starting iperf server h3')
-	popens[h3] = h3.popen('iperf3 -s -p 5566 -i 1 -1 > results/fair_{0}_{1}_{2} &'.format(algorithm, h3, delay), shell=True)
+	popens[h3] = h3.popen('iperf3 -s -p 5566 -i 1 -1 > results/fair_{0}_{1}_{2}'.format(algorithm, h3, delay), shell=True)
 	print('Starting iperf server h4')
-	popens[h4] = h4.popen('iperf3 -s -p 5566 -i 1 -1 > results/fair_{0}_{1}_{2} &'.format(algorithm, h4, delay), shell=True)
+	popens[h4] = h4.popen('iperf3 -s -p 5566 -i 1 -1 > results/fair_{0}_{1}_{2}'.format(algorithm, h4, delay), shell=True)
 	time.sleep(5)
 	
 	print('Starting iperf client h1')

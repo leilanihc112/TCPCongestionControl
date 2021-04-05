@@ -5,7 +5,7 @@ Algorithms:
   * Reno
   * Cubic
   * Westwood
-  * Vegas
+  * H-TCP
 
 Make sure to install the following packages before running: 
 `sudo apt-get install gnuplot`

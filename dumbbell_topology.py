@@ -277,7 +277,7 @@ def clean_topology():
 
 if __name__ == '__main__':
 	delay = [21, 81, 162]
-	algorithm = ['cubic', 'reno', 'westwood', 'vegas']
+	algorithm = ['cubic', 'reno', 'westwood', 'htcp']
 
 	setLogLevel('info')
 	

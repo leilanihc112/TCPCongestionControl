@@ -295,3 +295,4 @@ if __name__ == '__main__':
 			clean_topology()
 			print("TCP Fairness for {0} {1}".format(x, y))
 			run_tcp_tests_fairness(x, y)
+			clean_topology()
